@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myexcel.demo.dao.StudentDao">
+    <insert id="save" parameterType="com.myexcel.demo.dao.StudentDao">
+        INSERT INTO student
+        (id,name,birthday,gender)
+        VALUES
+        <foreach collection="students" item="students" separator=",">
+            (#{students.id, jdbcType=VARCHAR},#{students.name, jdbcType=VARCHAR},#{students.birthday, jdbcType=DATE},#{students.gender, jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+</mapper>
+
+
+
+
+
